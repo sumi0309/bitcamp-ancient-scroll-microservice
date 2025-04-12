@@ -1,0 +1,308 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 100%);
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+  font-family: "Papyrus", "Segoe UI", cursive;
+}
+
+.cave-container {
+  text-align: center;
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Papyrus", "Segoe UI", cursive;
+  position: relative;
+}
+
+.footprints-bg::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+
+  background-repeat: repeat;
+  background-size: 80px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.torch {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.file-input {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 2px dashed #ffb703;
+  background: #1f1f1f;
+  color: #fff6d6;
+  transition: all 0.3s ease-in-out;
+}
+
+.file-input:hover {
+  background-color: #302f1e;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background: linear-gradient(to right, #ffa41b, #ff6f00);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.summary-scroll {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #1f1f1f;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e0e0e0;
+  box-shadow: 0 0 15px #3f3f3f;
+  line-height: 1.7;
+}
+
+.summary-scroll strong {
+  color: #ffd166;
+}
+
+.summary-scroll em {
+  color: #80cbc4;
+}
+
+.sparks {
+  color: #ffc107;
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.rune-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #f2e6c2, #c1a86f);
+  border: 2px solid #5a3e1b;
+  border-radius: 15px;
+  font-family: "Papyrus", fantasy;
+  font-size: 1.1rem;
+  color: #3e2c0a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.rune-button:hover {
+  background: #d3ba92;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #fceabb, 0 0 20px #e0c68f;
+}
+
+.campfire {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flame {
+  position: absolute;
+  bottom: 20px;
+  left: 35%;
+  width: 10px;
+  height: 20px;
+  background: orange;
+  border-radius: 50%;
+  animation: flicker 0.6s infinite ease-in-out alternate;
+}
+
+.flame:nth-child(2) {
+  left: 45%;
+  width: 12px;
+  height: 24px;
+  background: gold;
+  animation-delay: 0.1s;
+}
+
+.flame:nth-child(3) {
+  left: 40%;
+  width: 9px;
+  height: 18px;
+  background: red;
+  animation-delay: 0.2s;
+}
+
+@keyframes flicker {
+  0% {
+    transform: scaleY(1) translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1.4) translateY(-5px);
+    opacity: 1;
+  }
+}
+
+.log {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 10px;
+  background: #654321;
+  border-radius: 5px;
+}
+
+.log1 {
+  left: 20px;
+  transform: rotate(25deg);
+}
+
+.log2 {
+  left: 20px;
+  transform: rotate(-25deg);
+}
+
+.glow-heading {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #ffeaa7;
+  text-shadow: 0 0 10px #ffa502, 0 0 20px #ff6f00, 0 0 30px #e17055;
+  animation: glow-flicker 3s infinite ease-in-out alternate;
+  z-index: 2;
+}
+
+.flicker {
+  display: inline-block;
+  animation: flickerEffect 1.5s infinite;
+}
+
+@keyframes flickerEffect {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #ffa502, 0 0 10px #ff6f00, 0 0 15px #ff6f00,
+      0 0 20px #ff6f00;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(15, 15, 15, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.campfire-animation {
+  animation: campfirePulse 2s infinite;
+  text-align: center;
+}
+
+@keyframes campfirePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.dino-footprints {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/616/616408.png");
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: stomp 2s infinite linear;
+  margin-bottom: 1rem;
+}
+
+@keyframes stomp {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+}
+
+.chant-text {
+  font-family: "Papyrus", fantasy;
+  font-size: 1.4rem;
+  color: #ffeaa7;
+  animation: flickerEffect 2s infinite;
+}
+
+.dino-waiting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center */
+  align-items: center; /* Horizontal center */
+  min-height: 70vh; /* Adjust as needed to push it vertically toward center */
+}
+
+.dino-gif {
+  width: 150px; /* You can adjust to 120px, 100px, etc. */
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 190, 100, 0.6));
+  border-radius: 20px;
+}
