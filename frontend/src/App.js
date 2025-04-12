@@ -61,7 +61,10 @@ function App() {
     formData.append("document", file);
 
     try {
-      const res = await axios.post("http://localhost:5000/upload", formData);
+      const res = await axios.post(
+        "http://44.211.165.224:5000/upload",
+        formData
+      );
       setSummary(res.data.summary);
       speakText(res.data.summary);
     } catch (err) {
