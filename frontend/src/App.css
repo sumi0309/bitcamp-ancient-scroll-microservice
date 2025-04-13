@@ -1,12 +1,15 @@
 body {
+  background-image: url("https://i.imgur.com/8bp95ae_d.png?maxwidth=520&shape=thumb&fidelity=high");
+  background-color: #000; /* Fills space around the image with black */
+  background-size: cover; /* Scales image to fit completely within the viewport */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0;
-  overflow-x: hidden;
-  background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 100%);
-  background-color: #0f0f0f;
-  color: #e0e0e0;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-size: 17px;
-  line-height: 1.7;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Papyrus", cursive;
+  color: white;
 }
 
 .cave-container {
