@@ -4,7 +4,9 @@ body {
   background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 100%);
   background-color: #0f0f0f;
   color: #e0e0e0;
-  font-family: "Papyrus", "Segoe UI", cursive;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .cave-container {
@@ -12,7 +14,8 @@ body {
   color: white;
   min-height: 100vh;
   padding: 2rem;
-  font-family: "Papyrus", "Segoe UI", cursive;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 1.05rem;
   position: relative;
 }
 
